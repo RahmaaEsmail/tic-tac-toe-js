@@ -8,7 +8,8 @@ const boxContainer = document.querySelector('.box-container');
 const boxes = document.querySelectorAll('.box')
 const heading = document.querySelector('h1');
 const restartBtn = document.querySelector('button');
-const emptyBoxes = Array(9).fill(null);
+let emptyBoxes = Array(9).fill(null);
+let winBlock;
 
 let currentPlayer = X_TEXT;
 
@@ -37,7 +38,7 @@ const startGame = function (e) {
 
     if (winGame()) {
         heading.textContent = `${currentPlayer} has won`;
-        const winBlock = winGame();
+        winBlock = winGame();
         winBlock.forEach(box => {
             boxes[box].style.backgroundColor = '#2d414b';
         })
@@ -64,6 +65,7 @@ const restartGame = function () {
     boxes.forEach(box => box.textContent = '');
     heading.textContent = 'tic tac toe';
     emptyBoxes = Array(9).fill(null);
+    boxes.forEach(box => box.style.backgroundColor = 'transparent')
 }
 
 
