@@ -85,6 +85,18 @@ button:hover {
     cursor: pointer;
 }
 
+.disabled {
+    pointer-events: none;
+}
+
+.box:focus {
+    outline: 0 !important;
+}
+
+.box:focus-visible {
+    outline: 0;
+}
+
 .box:nth-child(3),
 .box:nth-child(6),
 .box:nth-child(9) {

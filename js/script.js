@@ -32,7 +32,7 @@ const startGame = function (e) {
 
         if (!emptyBoxes[id]) {
             emptyBoxes[id] = currentPlayer;
-            e.target.innerHTML = emptyBoxes[id]
+            e.target.innerHTML = currentPlayer;
         }
     }
 
@@ -41,6 +41,11 @@ const startGame = function (e) {
         winBlock = winGame();
         winBlock.forEach(box => {
             boxes[box].style.backgroundColor = '#2d414b';
+        })
+
+        boxes.forEach(box => {
+            box.classList.add('disabled')
+            emptyBoxes = Array(6).fill(null)
         })
     }
 
@@ -65,7 +70,10 @@ const restartGame = function () {
     boxes.forEach(box => box.textContent = '');
     heading.textContent = 'tic tac toe';
     emptyBoxes = Array(9).fill(null);
-    boxes.forEach(box => box.style.backgroundColor = 'transparent')
+    boxes.forEach(box => {
+        box.style.backgroundColor = 'transparent';
+        box.classList.remove('disabled')
+    })
 }
 
 
